@@ -1,0 +1,74 @@
+@startuml
+class outils.FabriqueBriqueBody  <<S,#FF7700>>{
+}
+class outils.GestionaireDeSons  <<S,#FF7700>>{
+}
+class outils.GestionaireBodyToDelete {
+}
+class outils.FabriqueSprite  <<S,#FF7700>>{
+}
+class gameState.Introduction {
+}
+class controleur.ContactListenerPlayer {
+}
+class outils.GestionaireDeText {
+}
+class gameElement.element.Gem {
+}
+class gameElement.element.Eau {
+}
+class outils.LireFichier {
+}
+class gameElement.element.Gem2 {
+}
+class gameElement.element.Sortie {
+}
+class outils.GestionaireTextureAnimation  <<S,#FF7700>>{
+}
+class gameState.Game {
+}
+abstract class gameState.GameState {
+}
+class gameState.GameStateManager {
+}
+class com.mygdx.game.PlatVentureLuncher {
+}
+class gameElement.Element {
+}
+class gameElement.element.Brique {
+}
+class outils.Constants {
+}
+class gameElement.Player {
+}
+class controleur.GestionaireMouvement {
+}
+class gameElement.element.Gem1 {
+}
+
+
+outils.Iterable <|.. outils.GestionaireBodyToDelete
+gameState.GameState <|-- gameState.Introduction
+com.badlogic.gdx.physics.box2d.ContactListener <|.. controleur.ContactListenerPlayer
+gameElement.Element <|-- gameElement.element.Gem
+gameElement.Element <|-- gameElement.element.Eau
+gameElement.element.Gem <|-- gameElement.element.Gem2
+gameElement.Element <|-- gameElement.element.Sortie
+gameState.GameState <|-- gameState.Game
+com.badlogic.gdx.ApplicationAdapter <|-- com.mygdx.game.PlatVentureLuncher
+gameElement.Element <|-- gameElement.element.Brique
+com.badlogic.gdx.InputProcessor <|.. controleur.GestionaireMouvement
+gameElement.element.Gem <|-- gameElement.element.Gem1
+
+outils.GestionaireBodyToDelete "1"-- gameState.Game
+outils.GestionaireDeText "1"-- gameState.Game
+controleur.GestionaireMouvement "1"-- gameState.Game
+controleur.ContactListenerPlayer "1"-- gameState.Game
+gameState.Game -----"*" gameElement.Element
+gameState.Game -----"1" gameElement.Player
+gameState.GameStateManager --"*" gameState.GameState
+gameState.GameStateManager "1"-- com.mygdx.game.PlatVentureLuncher
+gameElement.Player "1"-- controleur.ContactListenerPlayer
+gameElement.Player "1"-- controleur.GestionaireMouvement
+controleur.ContactListenerPlayer -----"1" outils.GestionaireBodyToDelete
+@enduml
